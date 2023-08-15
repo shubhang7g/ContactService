@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Contact Data Table" icon-name="standard:contact">        
+        <!-- Show contact records -->
+        <template lwc:if={showDataTable}>
+            <lightning-datatable
+                key-field="id"
+                data={contacts}
+                columns={columns}
+                hide-checkbox-column="true"
+            >
+            </lightning-datatable>
+        </template>
+        <!-- Show error in case of error -->
+        <template lwc:elseif={error}>  
+            <div class="slds-text-body_regular slds-align_absolute-center slds-text-color_error"> The error has occurred, please contact the system admin. </div>
+        </template>
+        <!-- Show no records message in case of no contact records -->
+        <template lwc:else>
+            <div class="slds-text-body_regular slds-align_absolute-center"> No contact records are found. </div>
+        </template>        
+    </lightning-card>
+</template>
